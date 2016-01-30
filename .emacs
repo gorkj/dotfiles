@@ -20,7 +20,6 @@
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
 
-(toggle-frame-fullscreen)
 (menu-bar-mode -1)
 
 (prefer-coding-system 'utf-8)
