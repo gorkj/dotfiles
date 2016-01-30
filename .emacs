@@ -36,8 +36,9 @@
       browse-url-generic-program "chromium-browser")
 
 (require 'package)
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(setq package-archives '(("gnu"   . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
+                         ("SC"    . "http://joseito.republika.pl/sunrise-commander/")))
 
 ; activate all the packages (in particular autoloads)
 (package-initialize)
