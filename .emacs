@@ -32,6 +32,13 @@
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
 
+(global-prettify-symbols-mode 1)
+(eval-after-load 'clojure-mode
+  '(setq clojure--prettify-symbols-alist '(("lambda" . 955)
+                                           ("->" . 8594)
+                                           ("=>" . 8658)
+                                           ("map" . 8614))))
+
 ; easy config edit
 (global-set-key (kbd "C-`") (lambda() (interactive) (find-file "~/.emacs")))
 
