@@ -30,6 +30,8 @@
 
 ; easy config edit
 (global-set-key (kbd "C-`") (lambda() (interactive) (find-file "~/.emacs")))
+
+; easy switching of windows
 (global-set-key (kbd "<C-tab>") (lambda() (interactive) (other-window 1)))
 (global-set-key (kbd "<C-S-tab>") (lambda() (interactive) (other-window -1)))
 
