@@ -28,6 +28,10 @@
 (add-hook 'find-file-hook (lambda () (linum-mode 1)))
 (show-paren-mode 1)
 
+(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+
 ; easy config edit
 (global-set-key (kbd "C-`") (lambda() (interactive) (find-file "~/.emacs")))
 
@@ -82,6 +86,7 @@
 (powerline-default-theme)
 (evil-mode 1)
 (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
+(add-hook 'clojure-mode 'evil-paredit-mode)
 (add-hook 'clojurescript-mode 'evil-paredit-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 
