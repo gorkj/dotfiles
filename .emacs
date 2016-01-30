@@ -26,6 +26,7 @@
 (prefer-coding-system 'utf-8)
 (setq-default indent-tabs-mode nil)
 (add-hook 'find-file-hook (lambda () (linum-mode 1)))
+(show-paren-mode 1)
 
 ; easy config edit
 (global-set-key (kbd "C-`") (lambda() (interactive) (find-file "~/.emacs")))
