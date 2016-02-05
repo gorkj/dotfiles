@@ -68,8 +68,8 @@
     (package-install package)))
 
 (load-theme 'wombat)
-(set-default-font "Consolas 14")
-;(set-default-font "Inconsolata 14")
+(if (member "Consolas" (font-family-list)) (set-default-font "Consolas 14")
+  (if (member "Inconsolata" (font-family-list)) (set-default-font "Inconsolata 14")))
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
