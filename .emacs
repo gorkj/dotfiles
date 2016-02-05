@@ -28,10 +28,6 @@
 (add-hook 'find-file-hook (lambda () (linum-mode 1)))
 (show-paren-mode 1)
 
-(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-
 (global-prettify-symbols-mode 1)
 (eval-after-load 'clojure-mode
   '(setq clojure--prettify-symbols-alist '(("lambda" . 955)
@@ -88,14 +84,19 @@
 (require 'powerline-evil)
 (require 'powerline)
 (require 'projectile)
+(require 'paredit)
 (require 'yasnippet)
+
 
 (powerline-default-theme)
 (evil-mode 1)
-(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
-(add-hook 'clojure-mode 'evil-paredit-mode)
-(add-hook 'clojurescript-mode 'evil-paredit-mode)
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook       'global-company-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
+(add-hook 'clojure-mode          'evil-paredit-mode)
+(add-hook 'clojure-mode-hook    #'enable-paredit-mode)
+(add-hook 'clojurescript-mode    'evil-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook  'evil-paredit-mode)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
