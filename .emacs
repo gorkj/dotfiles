@@ -5,11 +5,13 @@
                            helm helm-ag helm-core helm-dash 
                            js2-mode php+-mode
                            magit magit-popup evil-magit
+                           monky
                            org evil-org
                            powerline powerline-evil 
                            projectile helm-projectile
                            yasnippet
                            sunrise-commander sunrise-x-buttons
+                           web-mode
                      ))
 
 ;angular-mode angular-snippets dash docker dockerfile-mode evil-visual-mark-mode
@@ -74,19 +76,19 @@
 (require 'cider)
 (require 'company)
 (require 'eval-sexp-fu)
-(require 'evil-magit)
 (require 'evil)
-(require 'helm-config)
+(require 'evil-magit)
 (require 'helm)
+(require 'helm-config)
 (require 'js2-mode)
 (require 'magit)
 (require 'org)
-(require 'powerline-evil)
-(require 'powerline)
-(require 'projectile)
 (require 'paredit)
+(require 'powerline)
+(require 'powerline-evil)
+(require 'projectile)
+(require 'web-mode)
 (require 'yasnippet)
-
 
 (powerline-default-theme)
 (evil-mode 1)
@@ -124,7 +126,10 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x x") 'sunrise)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x h") 'monky-status)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
-;(helm-projectile-on)
+(helm-projectile-on)
+
+(add-to-list 'auto-mode-alist '("\\.ftl\\'" . web-mode))
