@@ -1,17 +1,23 @@
-(setq package-list '(cider clojure-cheatsheet clojure-mode clojure-mode-extra-font-locking clojure-snippets
-                           company
-                           eval-sexp-fu
-                           evil evil-paredit 
-                           helm helm-ag helm-core helm-dash 
-                           js2-mode php+-mode
-                           magit magit-popup evil-magit
-                           monky
-                           org evil-org
-                           powerline powerline-evil 
-                           projectile helm-projectile
-                           yasnippet
-                           sunrise-commander sunrise-x-buttons
-                           web-mode
+(setq package-list '(
+                     ag
+                     cider
+                     clojure-cheatsheet
+                     clojure-mode
+                     clojure-mode-extra-font-locking
+                     clojure-snippets
+                     company
+                     eval-sexp-fu
+                     evil evil-paredit 
+                     helm helm-ag helm-core helm-dash 
+                     js2-mode php+-mode
+                     magit magit-popup evil-magit
+                     monky
+                     org evil-org
+                     powerline powerline-evil 
+                     projectile helm-projectile
+                     yasnippet
+                     sunrise-commander sunrise-x-buttons
+                     web-mode
                      ))
 
 ;angular-mode angular-snippets dash docker dockerfile-mode evil-visual-mark-mode
@@ -37,14 +43,19 @@
                                            ("=>" . 8658)
                                            ("map" . 8614))))
 
-; easy config edit
+;; easy config edit
 (global-set-key (kbd "C-`") (lambda() (interactive) (find-file "~/.emacs")))
 
-; easy switching of windows
+;; easy switching of windows
 (global-set-key (kbd "<C-tab>") (lambda() (interactive) (other-window 1)))
 (global-set-key (kbd "<C-S-tab>") (lambda() (interactive) (other-window -1)))
 
-; set default browser
+;; increate font size with mouse scroll
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-mouse-5] 'text-scale-decrease)
+
+
+;; set default browser
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "chromium-browser")
 
@@ -53,14 +64,14 @@
                          ("melpa" . "http://melpa.org/packages/")
                          ("SC"    . "http://joseito.republika.pl/sunrise-commander/")))
 
-; activate all the packages (in particular autoloads)
+;; activate all the packages (in particular autoloads)
 (package-initialize)
 
-; fetch the list of packages available 
+;; fetch the list of packages available 
 (unless package-archive-contents
   (package-refresh-contents))
 
-; install the missing packages
+;; install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
