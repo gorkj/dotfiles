@@ -1,0 +1,9 @@
+#!/bin/bash
+setxkbmap -layout us,se
+setxkbmap -option 'grp:lalt_lshift_toggle'
+USRRESOURCES=$HOME/.Xresources
+
+if [[ -e ~/.xprofile.private ]]; then
+    source .xprofile.private
+fi
+

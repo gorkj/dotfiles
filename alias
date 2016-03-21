@@ -1,0 +1,12 @@
+alias ca='git st | awk "/modified.*\.(php)|(inc)|(phtml)/ {print \$3}" | xargs -L1 /usr/local/bin/zca --disable var-use-before-def-global --disable bool-assign'
+alias gitd='git daemon --base-path=. --export-all --verbose'
+alias gittop='git log --all --pretty=format:"%an (%ar)" | awk "{cnt[\$1]++; if (cnt[\$1]==1) line[\$1]=\$0} END {for(i in cnt) {printf \"%5d %s\n\", cnt[i], line[i]}}" | sort -r'
+alias ll='ls -hal'
+alias ls='ls -Gp'
+alias ag="ag --pager 'less -R'"
+
+alias em='emacs -nw'
+
+if [[ -e ~/.alias.private ]]; then
+    source ~/.alias.private
+fi
